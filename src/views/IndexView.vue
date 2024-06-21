@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import woodenfishSound from "@/assets/sound/sound.mp3";
 import card from "@/components/card.vue";
+import level from "@/components/Level.vue";
 import { useCounterStore } from "@/stores/counter";
 import { ref } from "vue";
 const counterStore = useCounterStore();
@@ -54,6 +55,7 @@ const jumpToGithub = () => {
   <div class="app" style="text-align: center">
     <div class="title" style="text-align: center; margin-top: 100px">
       <card />
+      <level />
       <div style="font-size: 100px" class="numberOrletter">
         {{ counterStore.count }}
       </div>
