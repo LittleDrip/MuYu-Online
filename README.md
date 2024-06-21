@@ -1,34 +1,40 @@
-# MuYu
+## 木鱼Online项目
 
-This template should help get you started developing with Vue 3 in Vite.
+### 项目简介
 
-## Recommended IDE Setup
+**敲电子木鱼，积赛博功德**
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### 项目功能
 
-## Type Support for `.vue` Imports in TS
+- 点击木鱼图片或按下空格键增加计数
+- 每次敲击在鼠标附近弹出“功德+1”的消息，并自动消失
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
 
-```sh
+1.克隆项目代码：
+
+```
+git clone https://github.com/your-username/wooden-fish-counter.git
+```
+
+2.安装依赖包：
+
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3.启动开发服务器：
 
-```sh
+```
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+![image-20240621224516935](C:\Users\qq316\AppData\Roaming\Typora\typora-user-images\image-20240621224516935.png)
 
-```sh
-npm run build
-```
-# MuYu-Online
+
+
+![image-20240621224534742](C:\Users\qq316\AppData\Roaming\Typora\typora-user-images\image-20240621224534742.png)
+
+![image-20240621224549133](C:\Users\qq316\AppData\Roaming\Typora\typora-user-images\image-20240621224549133.png)
