@@ -31,10 +31,10 @@ npm install
 npm run dev
 ```
 
-![image-20240621224516935](C:\Users\qq316\AppData\Roaming\Typora\typora-user-images\image-20240621224516935.png)
+![image-20240621224516935](https://s21.ax1x.com/2024/06/21/pkDbDBR.png)
 
 
 
-![image-20240621224534742](C:\Users\qq316\AppData\Roaming\Typora\typora-user-images\image-20240621224534742.png)
+![image-20240621224534742](https://s21.ax1x.com/2024/06/21/pkDb6N6.png)
 
-![image-20240621224549133](C:\Users\qq316\AppData\Roaming\Typora\typora-user-images\image-20240621224549133.png)
+![image-20240621224549133](https://s21.ax1x.com/2024/06/21/pkDbrH1.png)
