@@ -34,12 +34,35 @@ window.addEventListener("keydown", (event) => {
     }, 150);
   }
 });
+const targetString = "drip";
+const targetString2 = "zero";
+
+let inputBuffer = "";
+window.addEventListener("keydown", (event) => {
+  inputBuffer += event.key.toLowerCase();
+
+  // Keep the buffer length equal to or less than the target string length
+  if (inputBuffer.length > targetString.length) {
+    inputBuffer = inputBuffer.slice(-targetString.length);
+  }
+
+  if (inputBuffer === targetString) {
+    counterStore.count += 5000;
+    // 在这里执行你的操作
+    inputBuffer = ""; // 重置缓冲区
+  }
+  if (inputBuffer === targetString2) {
+    counterStore.count = 0;
+    // 在这里执行你的操作
+    inputBuffer = ""; // 重置缓冲区
+  }
+});
 let isRunning = ref(false);
 const handleAuto = () => {
   if (isRunning.value == false) {
+    isRunning.value = true;
     intervalId = setInterval(() => {
       handleClick();
-      isRunning.value = true;
     }, 500); // 每秒钟执行一次
   } else {
     clearInterval(intervalId);

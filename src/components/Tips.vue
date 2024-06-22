@@ -8,8 +8,8 @@
   font-family:'MiSans';
 }
 dialog {
-  width: 400px;
-  height: 400px;
+  width: 420px;
+  height: 420px;
   /* text-align: center; */
   line-height: 40px;
   position: absolute;
@@ -65,7 +65,7 @@ dialog {
 }
 
 .button {
-  margin-left: 100px;
+  margin-left: 120px;
   position: relative;
   width: 6em;
   height: 4em;
@@ -153,7 +153,7 @@ dialog {
       【积德掌门人】20000功德<br />
       【怪盗积德】&nbsp;&nbsp; 30000功德
       </p>
-
+      <p style="margin-left: 320px;color:black; font-size: 5px;">键入“Drip”可积攒大量功德</p>
     </dialog>
 
 </template>
