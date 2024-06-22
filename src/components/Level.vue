@@ -1,40 +1,42 @@
 <script lang="ts" setup>
 import { useCounterStore } from "@/stores/counter";
-import { ref } from "vue";
+import { ref, watch, watchEffect } from "vue";
 const counterStore = useCounterStore();
 let level = ref("");
 let levelInfo = ref("");
 let plusCount = ref();
-if (counterStore.count >= 0) {
-  levelInfo.value = "积德萌新";
-  level.value = "Lv1";
-  plusCount.value = 500 - counterStore.count;
-}
-if (counterStore.count >= 500) {
-  levelInfo.value = "积德能手";
-  level.value = "Lv2";
-  plusCount.value = 1000 - counterStore.count;
-}
-if (counterStore.count >= 1000) {
-  levelInfo.value = "积德大师";
-  level.value = "Lv3";
-  plusCount.value = 5000 - counterStore.count;
-}
-if (counterStore.count >= 5000) {
-  levelInfo.value = "在下积德僧";
-  level.value = "Lv4";
-  plusCount.value = 20000 - counterStore.count;
-}
-if (counterStore.count >= 20000) {
-  levelInfo.value = "积德掌门人";
-  level.value = "Lv5";
-  plusCount.value = 30000 - counterStore.count;
-}
-if (counterStore.count > 30000) {
-  levelInfo.value = "怪盗积德";
-  level.value = "Lv6";
-  plusCount.value = "0";
-}
+watchEffect(() => {
+  if (counterStore.count >= 0) {
+    levelInfo.value = "积德萌新";
+    level.value = "Lv1";
+    plusCount.value = 500 - counterStore.count;
+  }
+  if (counterStore.count >= 500) {
+    levelInfo.value = "积德能手";
+    level.value = "Lv2";
+    plusCount.value = 1000 - counterStore.count;
+  }
+  if (counterStore.count >= 1000) {
+    levelInfo.value = "积德大师";
+    level.value = "Lv3";
+    plusCount.value = 5000 - counterStore.count;
+  }
+  if (counterStore.count >= 5000) {
+    levelInfo.value = "在下积德僧";
+    level.value = "Lv4";
+    plusCount.value = 20000 - counterStore.count;
+  }
+  if (counterStore.count >= 20000) {
+    levelInfo.value = "积德掌门人";
+    level.value = "Lv5";
+    plusCount.value = 30000 - counterStore.count;
+  }
+  if (counterStore.count > 30000) {
+    levelInfo.value = "怪盗积德";
+    level.value = "Lv6";
+    plusCount.value = "0";
+  } // 在这里执行你的操作
+});
 </script>
 
 <template>
@@ -57,10 +59,10 @@ if (counterStore.count > 30000) {
   position: absolute;
   /* top: 60px;
   right: 15px; */
-  top: 100px;
+  top: 90px;
   right: 330px;
   width: 150px;
-  height: 100px;
+  height: 120px;
   background-color: #fff;
   border-radius: 10px;
   display: flex;
