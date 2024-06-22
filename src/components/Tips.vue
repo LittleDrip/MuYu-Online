@@ -18,7 +18,7 @@ dialog {
   left: 50%;
   right: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.5), 0 0 0 50vmax rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.3em 1.2em rgba(0, 0, 0, 0.5), 0 0 0 50vmax rgba(0, 0, 0, 0.3);
   z-index: 99;
 }
 
@@ -65,7 +65,7 @@ dialog {
 }
 
 .button {
-  margin-left: 90px;
+  margin-left: 100px;
   position: relative;
   width: 6em;
   height: 4em;
@@ -141,7 +141,7 @@ dialog {
         <button class="button" @click="handleDialogClick">
           <span class="X"></span>
           <span class="Y"></span>
-          <div class="close">Close</div>
+          <div class="close">关闭</div>
         </button>
       </div>
       <p class="message">
