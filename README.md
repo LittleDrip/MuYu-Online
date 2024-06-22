@@ -31,10 +31,15 @@ npm install
 npm run dev
 ```
 
-![image-20240621224516935](https://s21.ax1x.com/2024/06/21/pkDbDBR.png)
+
+
+![image-20240622115550719](https://s21.ax1x.com/2024/06/22/pkrPwi4.png)
 
 
 
-![image-20240621224534742](https://s21.ax1x.com/2024/06/21/pkDb6N6.png)
+![image-20240622115616294](https://s21.ax1x.com/2024/06/22/pkrPDzR.png)
 
-![image-20240621224549133](https://s21.ax1x.com/2024/06/21/pkDbrH1.png)
+![image-20240622115729970](https://s21.ax1x.com/2024/06/22/pkrPBW9.png)
+
+![image-20240622115739885](https://s21.ax1x.com/2024/06/22/pkrP0JJ.png)
+
