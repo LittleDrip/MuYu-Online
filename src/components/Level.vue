@@ -1,46 +1,72 @@
 <script lang="ts" setup>
 import { useCounterStore } from "@/stores/counter";
-import { ref, watch, watchEffect } from "vue";
+
+import { onMounted, ref, watch, watchEffect } from "vue";
+import anime from "@/components/anime.vue";
+import notification from "@/components/notification.vue";
+
 const counterStore = useCounterStore();
+const notificationRef: any = ref(null);
+
+const callNotify = () => {
+  if (notificationRef.value) {
+    notificationRef.value.showNotification();
+  }
+};
 let level = ref("");
 let levelInfo = ref("");
 let plusCount = ref();
 watchEffect(() => {
-  if (counterStore.count >= 0) {
+  if (counterStore.count < 500) {
     levelInfo.value = "积德萌新";
     level.value = "Lv1";
     plusCount.value = 500 - counterStore.count;
-  }
-  if (counterStore.count >= 500) {
+  } else if (counterStore.count < 1000) {
     levelInfo.value = "积德能手";
     level.value = "Lv2";
     plusCount.value = 1000 - counterStore.count;
-  }
-  if (counterStore.count >= 1000) {
+  } else if (counterStore.count < 5000) {
     levelInfo.value = "积德大师";
     level.value = "Lv3";
     plusCount.value = 5000 - counterStore.count;
-  }
-  if (counterStore.count >= 5000) {
+  } else if (counterStore.count < 20000) {
     levelInfo.value = "在下积德僧";
     level.value = "Lv4";
     plusCount.value = 20000 - counterStore.count;
-  }
-  if (counterStore.count >= 20000) {
+  } else if (counterStore.count < 30000) {
     levelInfo.value = "积德掌门人";
     level.value = "Lv5";
     plusCount.value = 30000 - counterStore.count;
-  }
-  if (counterStore.count > 30000) {
+  } else if (counterStore.count <= 99999) {
     levelInfo.value = "怪盗积德";
     level.value = "Lv6";
-    plusCount.value = "0";
-  } // 在这里执行你的操作
+    plusCount.value = counterStore.count <= 30000 ? "0" : "0"; // 使用三元运算符简化
+  } else if (counterStore.count >= 100000) {
+    levelInfo.value = "怪盗积德";
+    level.value = "Lv6";
+    plusCount.value = counterStore.count <= 30000 ? "0" : "-1"; // 使用三元运算符简化
+  }
+
+  if (counterStore.count === 100000) {
+    levelInfo.value = "怪盗积德";
+    level.value = "Lv6";
+    plusCount.value = counterStore.count <= 30000 ? "0" : "-1"; // 使用三元运算符简化
+    callNotify();
+  }
+});
+
+onMounted(() => {
+  // Example of accessing child component's method after parent is mounted
+  if (notificationRef.value) {
+    console.log("Child component is mounted");
+  }
 });
 </script>
 
 <template>
   <div>
+    <notification ref="notificationRef" />
+
     <div class="card">
       <span style="background: #747272; font-size: 30px; color: #fff; border-radius: 5px">
         {{ level }}
@@ -48,8 +74,13 @@ watchEffect(() => {
 
       <div class="card__content">
         <p class="card__title">{{ levelInfo }}</p>
-        <p class="card__description" v-if="plusCount != 0">距离下一级还差{{ plusCount }}功德</p>
+        <p class="card__description" v-if="plusCount != 0 && plusCount != -1">
+          距离下一级还差{{ plusCount }}功德
+        </p>
         <p class="card__description" v-if="plusCount == 0"><br />&nbsp;功德圆满！</p>
+        <p class="card__description" v-if="plusCount == -1">
+          <anime />
+        </p>
       </div>
     </div>
   </div>

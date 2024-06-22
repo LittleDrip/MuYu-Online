@@ -35,7 +35,9 @@ window.addEventListener("keydown", (event) => {
   }
 });
 const targetString = "drip";
+
 const targetString2 = "zero";
+const targetString3 = "subt";
 
 let inputBuffer = "";
 window.addEventListener("keydown", (event) => {
@@ -53,6 +55,11 @@ window.addEventListener("keydown", (event) => {
   }
   if (inputBuffer === targetString2) {
     counterStore.count = 0;
+
+    inputBuffer = ""; // 重置缓冲区
+  }
+  if (inputBuffer === targetString3) {
+    counterStore.count -= 5;
 
     inputBuffer = ""; // 重置缓冲区
   }
@@ -104,7 +111,6 @@ const jumpToGithub = () => {
         <span>敲击木鱼</span>
         即可积德
       </div>
-      <dialog ref="dialog" @click="handleDialogClick">Hi~ I'm a dialog. Click to close.</dialog>
       <div class="handle">
         <button @click="handleAuto()" :class="{ active: isRunning }">自动积德</button>
       </div>
