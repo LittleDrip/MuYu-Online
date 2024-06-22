@@ -53,7 +53,7 @@ window.addEventListener("keydown", (event) => {
   }
   if (inputBuffer === targetString2) {
     counterStore.count = 0;
-    // 在这里执行你的操作
+
     inputBuffer = ""; // 重置缓冲区
   }
 });
