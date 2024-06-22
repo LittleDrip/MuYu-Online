@@ -1,4 +1,4 @@
-## 木鱼Online项目
+## 木鱼Online
 
 ### 项目简介
 
@@ -9,14 +9,14 @@
 - 点击木鱼图片或按下空格键增加计数
 - 每次敲击在鼠标附近弹出“功德+1”的消息，并自动消失
 
-
+- 其余见下面图片演示
 
 
 
 1.克隆项目代码：
 
 ```
-git clone https://github.com/your-username/wooden-fish-counter.git
+git clone https://github.com/LittleDrip/MuYu-Online.git
 ```
 
 2.安装依赖包：
@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-
+### 图片演示
 
 ![image-20240622115550719](https://s21.ax1x.com/2024/06/22/pkrPwi4.png)
 
