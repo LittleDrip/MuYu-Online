@@ -10,7 +10,7 @@ const audio = new Audio(woodenfishSound);
 const volume = ref(1); // 初始化音量为 50%
 const showMsg = ref(false);
 const handleClick = () => {
-  if (counterStore.count <= 99999999) {
+  if (counterStore.count <= 999999) {
     counterStore.increment();
     audio.currentTime = 0;
     audio.volume = volume.value; // 设置音量
@@ -71,7 +71,7 @@ const handleAuto = () => {
   }
 };
 const jumpToGithub = () => {
-  window.open("https://github.com/LittleDrip", "_blank");
+  window.open("https://github.com/LittleDrip/MuYu-Online", "_blank");
 };
 // -------------------------
 

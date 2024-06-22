@@ -48,7 +48,8 @@ watchEffect(() => {
 
       <div class="card__content">
         <p class="card__title">{{ levelInfo }}</p>
-        <p class="card__description">距离下一级还差{{ plusCount }}功德</p>
+        <p class="card__description" v-if="plusCount != 0">距离下一级还差{{ plusCount }}功德</p>
+        <p class="card__description" v-if="plusCount == 0"><br />&nbsp;功德圆满！</p>
       </div>
     </div>
   </div>
@@ -60,7 +61,7 @@ watchEffect(() => {
   /* top: 60px;
   right: 15px; */
   top: 90px;
-  right: 330px;
+  right: 380px;
   width: 150px;
   height: 120px;
   background-color: #fff;

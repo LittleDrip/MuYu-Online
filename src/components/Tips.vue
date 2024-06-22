@@ -1,4 +1,4 @@
-<style setup>
+<style  setup>
 .article {
   position: absolute;
   bottom: 10px;
@@ -158,7 +158,7 @@ dialog {
 
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from "vue";
 
 const dialog = ref(null);
