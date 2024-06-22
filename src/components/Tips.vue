@@ -4,7 +4,9 @@
   bottom: 10px;
   right: 5px;
 }
-
+.dialog{
+  font-family:'MiSans';
+}
 dialog {
   width: 400px;
   height: 400px;
@@ -133,7 +135,7 @@ dialog {
     <article ref="article" class="article">
       <img @click="handleBtnClick" src="@/assets/svg/About.svg" alt="说明" />
     </article>
-    <dialog ref="dialog">
+    <dialog ref="dialog" class="dialog">
       <div class="header">
         <p class="alert">欢迎来到Drip's MuYu</p>
         <button class="button" @click="handleDialogClick">
