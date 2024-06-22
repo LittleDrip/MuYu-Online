@@ -103,7 +103,9 @@ const jumpToGithub = () => {
       <div class="main" style="margin-top: 80px">
         <img class="icon-svg" src="@/assets/svg/Muyu.svg" @click="handleClick()" alt="木鱼" />
       </div>
-      <div v-if="showMsg" class="msg">功德+1</div>
+      <transition name="fade" mode="out-in">
+        <div v-if="showMsg" class="msg">功德+1</div>
+      </transition>
       <div style="margin-top: 40px; color: gray">
         按
         <span>空格</span>
@@ -127,7 +129,16 @@ span {
   color: beige;
 }
 /* -------------------------- */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease; /* 这里将 transition 应用于所有属性 */
+}
 
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px); /* 往上移动 20 像素 */
+}
 /* ------------------------------ */
 .github-svg {
   position: absolute;
@@ -137,8 +148,8 @@ span {
 }
 .msg {
   position: absolute; /* 使用绝对定位 */
-  top: 300px; /* 调整消息位置 */
-  right: 500px; /* 调整消息位置 */
+  top: 270px; /* 调整消息位置 */
+  right: 550px; /* 调整消息位置 */
   /* background-color: rgba(255, 255, 0, 0.8); 设置消息背景颜色 */
   padding: 5px 10px; /* 设置消息内边距 */
   border-radius: 5px; /* 设置消息圆角 */
