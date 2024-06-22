@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import Tips from "@/components/Tips.vue";
 import woodenfishSound from "@/assets/sound/sound.mp3";
 import card from "@/components/card.vue";
 import level from "@/components/Level.vue";
@@ -9,14 +10,16 @@ const audio = new Audio(woodenfishSound);
 const volume = ref(1); // 初始化音量为 50%
 const showMsg = ref(false);
 const handleClick = () => {
-  counterStore.increment();
-  audio.currentTime = 0;
-  audio.volume = volume.value; // 设置音量
-  audio.play();
-  showMsg.value = true;
-  setTimeout(() => {
-    showMsg.value = false;
-  }, 200); // 0.5 秒后隐藏消息
+  if (counterStore.count <= 99999999) {
+    counterStore.increment();
+    audio.currentTime = 0;
+    audio.volume = volume.value; // 设置音量
+    audio.play();
+    showMsg.value = true;
+    setTimeout(() => {
+      showMsg.value = false;
+    }, 200); // 0.5 秒后隐藏消息
+  }
 };
 let timer: any = null;
 let intervalId: any;
@@ -47,34 +50,41 @@ const handleAuto = () => {
 const jumpToGithub = () => {
   window.open("https://github.com/LittleDrip", "_blank");
 };
+// -------------------------
+
+// -------------------------
 </script>
 
 <template>
-  <img class="github-svg" src="@/assets/svg/Github.svg" @click="jumpToGithub()" alt="木鱼" />
+  <div class="container">
+    <Tips />
+    <img class="github-svg" src="@/assets/svg/Github.svg" @click="jumpToGithub()" alt="木鱼" />
+    <div class="app" style="text-align: center">
+      <div class="title" style="text-align: center; margin-top: 100px">
+        <card />
+        <level />
 
-  <div class="app" style="text-align: center">
-    <div class="title" style="text-align: center; margin-top: 100px">
-      <card />
-      <level />
-      <div style="font-size: 100px" class="numberOrletter">
-        {{ counterStore.count }}
+        <div style="font-size: 100px" class="numberOrletter">
+          {{ counterStore.count }}
+        </div>
+
+        <h1 class="h1foot" style="font-size: 20px; color: grey">功德</h1>
       </div>
-
-      <h1 class="h1foot" style="font-size: 20px; color: grey">功德</h1>
-    </div>
-    <div class="main" style="margin-top: 80px">
-      <img class="icon-svg" src="@/assets/svg/Muyu.svg" @click="handleClick()" alt="木鱼" />
-    </div>
-    <div v-if="showMsg" class="msg">功德+1</div>
-    <div style="margin-top: 40px; color: gray">
-      按
-      <span>空格</span>
-      或
-      <span>敲击木鱼</span>
-      即可积德
-    </div>
-    <div class="handle">
-      <button @click="handleAuto()" :class="{ active: isRunning }">自动积德</button>
+      <div class="main" style="margin-top: 80px">
+        <img class="icon-svg" src="@/assets/svg/Muyu.svg" @click="handleClick()" alt="木鱼" />
+      </div>
+      <div v-if="showMsg" class="msg">功德+1</div>
+      <div style="margin-top: 40px; color: gray">
+        按
+        <span>空格</span>
+        或
+        <span>敲击木鱼</span>
+        即可积德
+      </div>
+      <dialog ref="dialog" @click="handleDialogClick">Hi~ I'm a dialog. Click to close.</dialog>
+      <div class="handle">
+        <button @click="handleAuto()" :class="{ active: isRunning }">自动积德</button>
+      </div>
     </div>
   </div>
 </template>
@@ -87,6 +97,9 @@ span {
   margin: 0 1px;
   color: beige;
 }
+/* -------------------------- */
+
+/* ------------------------------ */
 .github-svg {
   position: absolute;
   size: 50px;

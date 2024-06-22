@@ -4,41 +4,49 @@ import { ref } from "vue";
 const counterStore = useCounterStore();
 let level = ref("");
 let levelInfo = ref("");
-if (counterStore.count > 0) {
+let plusCount = ref();
+if (counterStore.count >= 0) {
   levelInfo.value = "积德萌新";
   level.value = "Lv1";
+  plusCount.value = 500 - counterStore.count;
 }
-if (counterStore.count > 500) {
+if (counterStore.count >= 500) {
   levelInfo.value = "积德能手";
   level.value = "Lv2";
+  plusCount.value = 1000 - counterStore.count;
 }
-if (counterStore.count > 1000) {
+if (counterStore.count >= 1000) {
   levelInfo.value = "积德大师";
   level.value = "Lv3";
+  plusCount.value = 5000 - counterStore.count;
 }
-if (counterStore.count > 5000) {
+if (counterStore.count >= 5000) {
   levelInfo.value = "在下积德僧";
   level.value = "Lv4";
+  plusCount.value = 20000 - counterStore.count;
 }
-if (counterStore.count > 20000) {
+if (counterStore.count >= 20000) {
   levelInfo.value = "积德掌门人";
   level.value = "Lv5";
+  plusCount.value = 30000 - counterStore.count;
 }
 if (counterStore.count > 30000) {
   levelInfo.value = "怪盗积德";
   level.value = "Lv6";
+  plusCount.value = "0";
 }
 </script>
 
 <template>
   <div>
     <div class="card">
-      <span style="background: #808080; font-size: large">
+      <span style="background: #747272; font-size: 30px; color: #fff; border-radius: 5px">
         {{ level }}
       </span>
+
       <div class="card__content">
         <p class="card__title">{{ levelInfo }}</p>
-        <p class="card__description">距离下一级还差{{ 10000 - counterStore.count }}功德</p>
+        <p class="card__description">距离下一级还差{{ plusCount }}功德</p>
       </div>
     </div>
   </div>
@@ -47,8 +55,10 @@ if (counterStore.count > 30000) {
 <style scoped>
 .card {
   position: absolute;
-  top: 60px;
-  right: 15px;
+  /* top: 60px;
+  right: 15px; */
+  top: 100px;
+  right: 330px;
   width: 150px;
   height: 100px;
   background-color: #fff;
@@ -64,7 +74,7 @@ if (counterStore.count > 30000) {
 
 .card span {
   width: 60px;
-  padding: 2px 0px 2px 0px;
+  padding: 2px 8px 2px 8px;
 }
 
 .card:hover {
